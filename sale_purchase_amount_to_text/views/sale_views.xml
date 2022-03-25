@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="view_sale_amount_to_text_form" model="ir.ui.view">
+    <field name="name">sale.order.amount.to.text</field>
+    <field name="model">sale.order</field>
+    <field name="inherit_id" ref="sale.view_order_form"/>
+    <field name="arch" type="xml">
+
+      <xpath expr="//field[@name='tax_totals_json']" position="after">
+            <field name="amount_to_text_mxn" attrs="{'invisible': [('pricelist_id','=',2)]}"/>
+      </xpath>
+
+      <xpath expr="//field[@name='tax_totals_json']" position="after">
+            <field name="amount_to_text_usd" attrs="{'invisible': [('pricelist_id','=',1)]}"/>
+      </xpath>
+
+    </field>
+  </record>
+
+  <record id="view_purchase_amount_to_text_form" model="ir.ui.view">
+    <field name="name">purchase.order.amount.to.text</field>
+    <field name="model">purchase.order</field>
+    <field name="inherit_id" ref="purchase.purchase_order_form"/>
+    <field name="arch" type="xml">
+
+      <xpath expr="//field[@name='tax_totals_json']" position="after">
+            <field name="amount_to_text_mxn_oc" attrs="{'invisible': [('currency_id','=',2)]}"/>
+      </xpath>
+
+      <xpath expr="//field[@name='tax_totals_json']" position="after">
+            <field name="amount_to_text_usd_oc" attrs="{'invisible': [('currency_id','=',33)]}"/>
+      </xpath>
+
+    </field>
+  </record>
+
+</odoo>

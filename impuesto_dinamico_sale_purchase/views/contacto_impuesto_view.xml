@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="field_sale_order_sales_iva_form" model="ir.ui.view">
+        <field name="name">sale.order.sales.iva</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+
+        <xpath expr="//field[@name='partner_id']" position="after">
+            <field name="x_partner_iva"/>
+        </xpath>
+        </field>
+    </record>
+
+    <record id="field_purchase_order_iva_form" model="ir.ui.view">
+        <field name="name">purchase.order.iva</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="arch" type="xml">
+
+        <xpath expr="//field[@name='partner_id']" position="after">
+            <field name="x_partner_iva"/>
+        </xpath>
+        </field>
+    </record>
+
+    <record id="field_res_partner_sales_iva_form" model="ir.ui.view">
+        <field name="name">res.partner.sales.iva</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+
+        <xpath expr="//field[@name='vat']" position="after">
+            <field name="x_contacto_ventas_iva"/>
+            <field name="x_contacto_compras_iva"/>
+        </xpath>
+        </field>
+    </record>
+</odoo>
+
